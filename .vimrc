@@ -17,6 +17,7 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/nerdtree'
 ""NeoBundle 'https://bitbucket.org/kovisoft/slimv'
 
 call neobundle#end()
@@ -46,3 +47,12 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vspli
 " ESCキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+
+" Gitを便利に使う
+NeoBundle 'tpope/vim-fugitive'
+
+" grep検索の実行後にQuickFix Listを表示する
+autocmd QuickFixCmdPost *grep* cwindow
+
+" ステータス行に現在のgitブランチを表示する
+set statusline+=%{fugitive#statusline()}
